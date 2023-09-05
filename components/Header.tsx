@@ -6,21 +6,25 @@ import styles from "../styles/Header.module.css";
 export const Header = () => {
   return (
     <nav className={styles.header}>
-      <Link href="/">
-        <Image
-          src="/thirdweb.svg"
-          alt="thirdweb"
-          width={52}
-          height={32}
-          className={styles.logo}
-        />
-      </Link>
+      <div style={{ width: "200px" }}>
+        <Link href="/">
+          <Image
+            src="/thirdweb.svg"
+            alt="thirdweb"
+            width={52}
+            height={32}
+            className={styles.logo}
+          />
+        </Link>
+      </div>
 
       <Link href="/admin" className={styles.link}>
         Admin Dashboard
       </Link>
 
-      <ConnectWallet theme="dark" />
+      <div style={{ width: "200px" }}>
+        <ConnectWallet theme="dark" />
+      </div>
     </nav>
   );
 };

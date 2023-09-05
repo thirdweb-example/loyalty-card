@@ -15,13 +15,15 @@ interface NFTProps {
 }
 
 export const NFTCard: FC<NFTProps> = ({ nft, adminView }) => {
-  const id = nft.metadata.id;
+  const { contract } = useContract(CONTRACT_ADDRESS);
   const [points, setPoints] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
-  const { contract } = useContract(CONTRACT_ADDRESS);
+
+  const id = nft.metadata.id;
 
   const update = async () => {
     try {
+      // create the new metadata of the NFT
       const metadata = {
         ...nft.metadata,
         attributes: [
@@ -37,6 +39,7 @@ export const NFTCard: FC<NFTProps> = ({ nft, adminView }) => {
         ],
       };
 
+      // call the erc721.update function with the new metadata
       await contract?.erc721.update(nft.metadata.id, metadata);
     } catch (err) {
       console.error(err);
@@ -82,6 +85,7 @@ export const NFTCard: FC<NFTProps> = ({ nft, adminView }) => {
           <p>Owner: {nft.owner}</p>
           {nft.owner !== "0x0000000000000000000000000000000000000000" && (
             <Web3Button
+              // Use the revoke function of the erc721 contract to revoke the NFT
               action={(contract) => contract.erc721.revoke(id)}
               contractAddress={CONTRACT_ADDRESS}
             >
@@ -114,6 +118,7 @@ export const NFTCard: FC<NFTProps> = ({ nft, adminView }) => {
         </>
       ) : (
         <Web3Button
+          // Use the cancel function of the erc721 contract to cancel the NFT
           action={(contract) => contract.erc721.cancel(id)}
           contractAddress={CONTRACT_ADDRESS}
         >

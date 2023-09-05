@@ -8,6 +8,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
+    // Initialize the SDK
     const sdk = ThirdwebSDK.fromPrivateKey(
       process.env.WALLET_PRIVATE_KEY!,
       "mumbai",
@@ -20,6 +21,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const address = req.body.address;
 
+    // Create the metadata for the NFT
     const payload: PayloadToSign721withQuantity = {
       to: address,
       metadata: {
@@ -40,6 +42,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       },
     };
 
+    // Generate the signature with the metadata
     const signedPayload = await contract.erc721.signature.generate(payload);
 
     return res.status(200).json({ signedPayload });

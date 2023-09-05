@@ -20,6 +20,7 @@ const Home: NextPage = () => {
   const generate = async () => {
     try {
       setLoading(true);
+      // Call the generate-sig API endpoint to get a signed payload
       const res = await fetch("/api/generate-sig", {
         method: "POST",
         headers: {
@@ -32,6 +33,7 @@ const Home: NextPage = () => {
 
       const data = await res.json();
 
+      // Use the signed payload to call the erc721.signature.mint function
       await contract?.erc721.signature.mint(data.signedPayload);
       alert("NFT minted!");
     } catch (err) {
@@ -60,7 +62,7 @@ const Home: NextPage = () => {
         </div>
       )}
 
-      {isLoading && <p>Loading...</p>}
+      {address && isLoading && <p>Loading...</p>}
       {isError && <p>Error</p>}
     </main>
   );
