@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 99vw;
+  padding: 80px 24px;
+}
+
+.nfts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.nft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.nft ul {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.inactive {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.active {
+  color: #fff;
+  background-color: #000;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.button {
+  background: hsl(256, 6%, 93.2%);
+  color: hsl(246, 6%, 9%);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 0.5rem;
+  cursor: pointer;
+  min-width: 150px;
+  font-size: 16px;
+  font-weight: 500;
+}
