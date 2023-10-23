@@ -26,9 +26,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       to: address,
       metadata: {
         name: "My loyalty card",
-        description: "Some loyalty card description. Too lazy to write one.",
+        description: "My loyalty card description.",
         image:
-          "https://15065ae3c21e0bff07eaf80b713a6ef0.ipfscdn.io/ipfs/bafybeie2mhmbriq4ndtl3i7enkovlm6njycdutobw4jczixdbfoensranm/blue_square.png",
+          "ipfs://bafybeie2mhmbriq4ndtl3i7enkovlm6njycdutobw4jczixdbfoensranm/blue_square.png",
         attributes: [
           {
             trait_type: "color",
